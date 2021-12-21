@@ -29,7 +29,7 @@ dockerComposeVersion=$(docker-compose version --short | sed 's~v~~;s~-.*~~')
 dockerComposeVersion=${dockerComposeVersion%.*}
 if [[ $(awk "BEGIN {print (${dockerComposeVersion} >= 2.0) ? \"true\" : \"false\" }") == "true" ]]; then
   # Use the new syntax when version 2.0.0 or greater is detected.
-  dockerCompose="docker --log-level error compose"
+  dockerCompose="docker compose"
 fi
 
 echo
